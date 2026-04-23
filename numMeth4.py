@@ -27,9 +27,9 @@ def getExpRoot(x, exp, err, xLow, xHigh):
         if(iter != 1):
             Ea = (abs(newXMid - oldXMid)/newXMid) * 100
             table['Ea'].append(f"{Ea} %")
-        if(float(fXMid) < 0):
+        if(float(fXMid) * float(f.subs(x, xLow)) < 0):
             xLow = newXMid
-        elif(float(fXMid) > 0):
+        elif(float(fXMid) * float(f.subs(x, xLow)) > 0):
               xHigh = newXMid
         else:
             break
